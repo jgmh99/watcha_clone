@@ -1,0 +1,32 @@
+.App {
+  background-color: black;
+  color: #fff;
+}
+.topNav{
+  color: #fff;
+  text-align: end;
+  border-bottom: 1px solid rgb(64, 64, 64);
+}
+.leftNavBar{
+  width: 10em;
+  border-right: 1px solid rgb(64, 64, 64);
+  box-sizing: border-box;
+  border-radius: 0px 5px 5px 0;
+}
+.asdads{
+  
+}
+.container-sec{
+  display: flex;
+}
+.movie-container{
+  background-color: #fff;
+  margin: 1em;
+  display: grid;
+  height: auto;
+}
+.hrLine{
+  width: 80%;
+  border: 1px solid rgb(64, 64, 64);
+  margin: 10px auto;
+}
