@@ -28,7 +28,7 @@ import Join from './pages/Join.js';
 
 function App() {
   return (
-    <div className="App">asd
+    <div className="App">
         <TopNav />
         <div className='container-sec'>
           <LeftNav />
