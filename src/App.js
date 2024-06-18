@@ -25,6 +25,7 @@ import Rating from './pages/Rating.js';
 import Locker from './pages/Locker.js';
 import Login from './pages/Login.js';
 import Join from './pages/Join.js';
+import Subscribe from './pages/Subscribe.js';
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/join' element={<Join/>}/>
             
-            <Route path='/subscribe' element={<Finder/>}/>
+            <Route path='/subscribe' element={<Subscribe/>}/>
             <Route path='/individualPurchase' element={<IndividualPurchase/>}/>
             <Route path='/webtoon' element={<Webtoon/>}/>
             <Route path='/party' element={<Party/>}/>

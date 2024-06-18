@@ -1,20 +1,59 @@
+@font-face {
+  font-family: 'YEONGJUPunggiGinsengTTF';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/YEONGJUPunggiGinsengTTF.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LeferiPoint-BlackA';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+ul{
+  list-style: none;
+}
 .App {
-  background-color: black;
+  background-color: rgb(33, 37, 41);
   color: #fff;
+  font-family: 'YEONGJUPunggiGinsengTTF', Arial, sans-serif;
+  
+}
+body{
+  padding-top: 72px;
+  background-color: rgb(33, 37, 41) !important;
 }
 .topNav{
   color: #fff;
-  text-align: end;
+  text-align: center;
   border-bottom: 1px solid rgb(64, 64, 64);
+  /* line-height:  */
+  background-color: rgb(33, 37, 41);
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 72px;
+
+  z-index: 99;
 }
 .leftNavBar{
   width: 10em;
+  height: 100%;
   border-right: 1px solid rgb(64, 64, 64);
   box-sizing: border-box;
   border-radius: 0px 5px 5px 0;
+  text-align: center;
+
+  box-sizing: border-box;
+  position: fixed;
+  display: inline-block;
 }
-.asdads{
-  
+.leftNavBar a:hover{
+  color: #5d5d5d !important;
+}
+.logo-img{
+  width: 10em;
 }
 .container-sec{
   display: flex;
@@ -29,4 +68,35 @@
   width: 80%;
   border: 1px solid rgb(64, 64, 64);
   margin: 10px auto;
+}
+.movie-card{
+  width: 16rem;
+  border: none;
+  background-color: transparent !important;
+
+  position: relative;
+
+}
+.movie-card img{
+  border-radius: 0 !important;
+}
+.movie-card p{
+  font-family: 'LeferiPoint-BlackA';
+  
+  font-size: 16px;
+  margin: 0;
+  text-align: end;
+  background-color: transparent;
+  color: #fff;
+  -webkit-text-stroke: 0.5px black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.Page{
+  box-sizing: border-box;
+  width: calc(100% - 10em);
+  position: absolute;
+  right: 0;
 }
