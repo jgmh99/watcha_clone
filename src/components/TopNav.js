@@ -15,8 +15,12 @@ const TopNav = () => {
   // 숨길 페이지 경로를 배열로 지정
   const hiddenPages = ['/login', '/join']; // 예시: 로그인 페이지와 회원가입 페이지
 
-  // 현재 경로가 숨길 페이지에 포함되어 있으면 null을 반환하여 숨김
-  
+  // if (hiddenPages.includes(location.pathname)) {
+  //   return null;
+  // }
+
+  const hideJoinButton = location.pathname === '/join';
+  const hideLoginButton = location.pathname === '/login';
   return (
     <>
     {
@@ -29,16 +33,22 @@ const TopNav = () => {
         </Nav>
         <Nav className="flex" style={{fontSize : '16px'}}>
           <Nav.Link href="/#">
-            <Button variant="dark">
+            <Button style={{backgroundColor:'transparent', border:'none'}} >
               <FontAwesomeIcon icon={faBell} />
             </Button>
           </Nav.Link>
-          <Nav.Link href="/login">
+          {/* 현재 페이지가 login페이지,이면 회원가입 버튼 안보이게 */}
+          {!hideLoginButton && (
+            <Nav.Link href="/login">
             <Button variant="dark">로그인</Button>
           </Nav.Link>
-          <Nav.Link href="/join">
-            <Button style={{backgroundColor : "rgb(255,4,88)", border:'none'}}>회원가입</Button>
-          </Nav.Link>
+          )}
+          {/* 현재 페이지가 join페이지,이면 회원가입 버튼 안보이게 */}
+          {!hideJoinButton && (
+            <Nav.Link href="/join">
+              <Button style={{ backgroundColor: "rgb(255,4,88)", border: 'none' }}>회원가입</Button>
+            </Nav.Link>
+          )}
         </Nav>
       </div> : 
         <div className='topNav ps-3 pe-3 pt-2 pb-2 d-flex justify-content-between align-items-center'>

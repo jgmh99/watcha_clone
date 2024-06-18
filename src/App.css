@@ -109,7 +109,8 @@ body{
   right: 50%;
   transform: translateX(50%);
 }
-.join-form{
+.join-form,
+.login-form{
   font-family: 'LeferiPoint-BlackA';
   padding: 5rem;
   margin: 0 auto;
@@ -128,9 +129,10 @@ body{
 
   background-repeat: no-repeat;
   background-size: 20px 20px;
-  
 }
-.join-form input{
+.login-form{transform: translateY(50%);}
+.join-form input,
+.login-form input{
   width: 22em;
   height: 3.5em;
   font-size: 13px;
@@ -138,11 +140,13 @@ body{
   background-color: #191a1c;
   color: #fff;
 }
-.join-form input:focus{
+.join-form input:focus,
+.login-form input:focus{
   background-color: #191a1c;
   color: #fff;
 }
-.join-form input::placeholder{
+.join-form input::placeholder,
+.login-form input::placeholder{
   color: gray;
   font-size: 0.9em;
 }
