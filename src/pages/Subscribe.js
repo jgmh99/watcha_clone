@@ -5,7 +5,7 @@ import Contents from '../components/Contents'
 
 const Subscribe = () => {
   return (
-    <div className='Page' style={{fontSize:'24px', margin:'1em 1em', width:'100%'}}>
+    <div className='Page' style={{fontSize:'24px', margin:'1em 1em'}}>
       <HeaderText text="구독" />
       <Contents/>
     </div>

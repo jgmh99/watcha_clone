@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderText from '../components/HeaderText'
 import Contents from '../components/Contents'
 
