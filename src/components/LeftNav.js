@@ -13,9 +13,9 @@ const LeftNav = () => {
   if (hiddenPages.includes(location.pathname)) {
     return null;
   }
-
+  
   return (
-    <div className='leftNavBar ps-3' >
+    <div className='leftNavBar ps-3 d-none d-md-block d-lg-block d-xl-block '>
         <Nav defaultActiveKey="/" className="flex-column">
             <Nav.Link  style={{color : 'white'}} href="/subscribe">구독</Nav.Link>
             <Nav.Link  style={{color : 'white'}} href="/individualPurchase">개별구매</Nav.Link>

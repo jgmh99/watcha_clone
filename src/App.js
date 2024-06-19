@@ -29,6 +29,7 @@ import Login from './pages/Login.js';
 import Join from './pages/Join.js';
 import Subscribe from './pages/Subscribe.js';
 import Loginalert from './components/LoginAlert.js'
+import BottomNav from './components/BottomNav.js';
 
 
 
@@ -42,7 +43,21 @@ function App() {
 
 //     return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머 클리어
 // }, []); // 빈 배열을 전달하여 한 번만 실행되도록 설정
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  // 창 크기가 변경될 때마다 상태 업데이트
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때와 창 크기 변경 시에 이벤트 리스너 등록
+    window.addEventListener('resize', handleResize);
+    return () => {
+      // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // 빈 배열을 넘겨 초기 렌더링 시에만 실행되도록 함
   return (
     <div className="App">
         <TopNav />
@@ -68,6 +83,8 @@ function App() {
             login == false ? <Loginalert/> : null
           }
         </div>
+        {/* <div style={{width:'100%', height:'100px', backgroundColor:'#fff',position:'absolute', bottom:'0'}}>gdgdg</div> */}
+        {windowWidth < 768 && <BottomNav />}
         
     </div>
   );

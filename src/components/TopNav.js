@@ -32,7 +32,7 @@ const TopNav = () => {
           </Nav.Link>
         </Nav>
         <Nav className="flex" style={{fontSize : '16px'}}>
-          <Nav.Link href="/#">
+          <Nav.Link href="#">
             <Button style={{backgroundColor:'transparent', border:'none'}} >
               <FontAwesomeIcon icon={faBell} />
             </Button>

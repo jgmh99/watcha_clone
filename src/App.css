@@ -35,7 +35,21 @@ body{
   top: 0;
   height: 72px;
 
-  z-index: 99;
+  z-index: 9999999;
+}
+.botNav{
+  color: #fff;
+  text-align: center;
+  border-bottom: 1px solid rgb(64, 64, 64);
+  /* line-height:  */
+  background-color: rgb(33, 37, 41);
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 72px;
+  display: none !important;
+  z-index: 9999999;
 }
 .leftNavBar{
   width: 10em;
@@ -51,6 +65,11 @@ body{
 }
 .leftNavBar a:hover{
   color: #5d5d5d !important;
+}
+.bottomNavBar{
+  position: fixed;
+  bottom: 0;
+  background-color: red;
 }
 .logo-img{
   width: 10em;
@@ -69,30 +88,7 @@ body{
   border: 1px solid rgb(64, 64, 64);
   margin: 10px auto;
 }
-.movie-card{
-  width: 16rem;
-  border: none;
-  background-color: transparent !important;
 
-  position: relative;
-
-}
-.movie-card img{
-  border-radius: 0 !important;
-}
-.movie-card p{
-  font-family: 'LeferiPoint-BlackA';
-  
-  font-size: 16px;
-  margin: 0;
-  text-align: end;
-  background-color: transparent;
-  color: #fff;
-  -webkit-text-stroke: 0.5px black;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
 
 .Page{
   box-sizing: border-box;
@@ -100,9 +96,11 @@ body{
   position: absolute;
   right: 0;
 }
+
+
 .alert-box{
   font-family: 'LeferiPoint-BlackA';
-  width: 80%;
+  width: 90%;
   font-size: 10px;
   position: fixed !important;
   bottom: 0;
@@ -118,15 +116,15 @@ body{
   font-weight: 400;
   /* border: 1px solid red; */
   background: 
-    linear-gradient(to right, white 4px, transparent 4px) 0 0,
-    linear-gradient(to right, white 4px, transparent 4px) 0 100%,
-    linear-gradient(to left, white 4px, transparent 4px) 100% 0,
-    linear-gradient(to left, white 4px, transparent 4px) 100% 100%,
-    linear-gradient(to bottom, white 4px, transparent 4px) 0 0,
-    linear-gradient(to bottom, white 4px, transparent 4px) 100% 0,
-    linear-gradient(to top, white 4px, transparent 4px) 0 100%,
-    linear-gradient(to top, white 4px, transparent 4px) 100% 100%;
-
+  linear-gradient(to right, white 4px, transparent 4px) 0 0,
+  linear-gradient(to right, white 4px, transparent 4px) 0 100%,
+  linear-gradient(to left, white 4px, transparent 4px) 100% 0,
+  linear-gradient(to left, white 4px, transparent 4px) 100% 100%,
+  linear-gradient(to bottom, white 4px, transparent 4px) 0 0,
+  linear-gradient(to bottom, white 4px, transparent 4px) 100% 0,
+  linear-gradient(to top, white 4px, transparent 4px) 0 100%,
+  linear-gradient(to top, white 4px, transparent 4px) 100% 100%;
+  
   background-repeat: no-repeat;
   background-size: 20px 20px;
 }
@@ -157,3 +155,86 @@ body{
   width: 1em;
   height: 1em;
 }
+
+
+/* 콘텐츠 CSS */
+.movie-card{
+  width: 16rem;
+  border: none;
+  background-color: transparent !important;
+
+  position: relative;
+
+    box-sizing: border-box;
+
+}
+.movie-card img{
+  border-radius: 0 !important;
+  box-sizing: border-box;
+
+}
+.card-body{
+  font-family: 'LeferiPoint-BlackA';
+  
+  font-size: 16px;
+  margin: 0;
+  text-align: end;
+  background-color: transparent;
+  
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0 !important;
+
+  box-sizing: border-box;
+}
+.card-title{
+  font-family: 'LeferiPoint-BlackA' !important;
+  font-size: 16px !important;
+  margin: 0 !important;
+  color: #fff !important;
+  font-weight: 100 !important;
+  /* -webkit-text-stroke: 0.5px black; */
+}
+.movie-card {
+  width: 100%; /* 카드는 열의 너비를 따라가도록 설정 */
+  margin-bottom: 1rem; /* 각 카드 간의 여백 추가 */
+}
+
+.card-img {
+  height: auto; /* 이미지의 높이를 자동으로 설정하여 비율 유지 */
+  max-height: 200px; /* 이미지의 최대 높이 설정 */
+  object-fit: cover; /* 이미지가 카드 크기에 맞게 잘리도록 설정 */
+}
+
+@media (max-width: 576px) {
+  .movie-card {
+    width: 100%; /* 작은 화면에서는 카드 너비를 100%로 설정 */
+  }
+}
+@media (max-width: 767px) {
+  .Page{
+    width: calc(100% - 2em);
+  }
+  
+}
+@media (min-width: 768px) {
+  .movie-card {
+    width: 100%; /* 중간 크기 이상의 화면에서도 카드 너비를 100%로 설정 */
+  }
+}
+
+@media (min-width: 992px) {
+  .movie-card {
+    width: 100%; /* 큰 화면에서도 카드 너비를 100%로 설정 */
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-card {
+    width: 100%; /* 매우 큰 화면에서도 카드 너비를 100%로 설정 */
+    
+  }
+}
+
+/* 예고편 랜덤 */

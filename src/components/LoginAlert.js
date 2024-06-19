@@ -16,7 +16,7 @@ const LoginAlert = () => {
       return null;
     }
     return (
-        <Alert variant="danger" style={{backgroundColor:'#ff0458', border:'none', color:'#fff'}} onClose={() => setLogin(false)} dismissible className='alert-box'>
+        <Alert variant="danger" className='alert-box' style={{backgroundColor:'#ff0458', border:'none', color:'#fff', zIndex:'9999'}} onClose={() => setLogin(false)} dismissible >
             <Alert.Heading>
                 <FontAwesomeIcon icon={faTicket} />
                 <b> 매주 500편 이상 신작 업데이트!</b>
