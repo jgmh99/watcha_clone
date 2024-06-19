@@ -49,7 +49,7 @@ const RandomMovie = () => {
             title="Trailer"
             width="100%"
             height={iframeHeight}
-            src={`https://www.youtube.com/embed/${movie.trailer}?autoplay=1&controls=0&mute=1`}
+            src={`https://www.youtube.com/embed/${movie.trailer}?autoplay=1&controls=0&mute=1&start=30`}
             frameBorder="0"
             allowFullScreen
             style={{ position:'absolute', top:'0', left:'0', width:'100%', height:'100%', zIndex: '9'}}

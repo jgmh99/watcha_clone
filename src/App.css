@@ -10,7 +10,7 @@
   font-weight: normal;
   font-style: normal;
 }
-ul{
+ul,a{
   list-style: none;
 }
 .App {
@@ -19,6 +19,7 @@ ul{
   font-family: 'YEONGJUPunggiGinsengTTF', Arial, sans-serif;
   
 }
+
 body{
   padding-top: 72px;
   background-color: black !important;
@@ -34,13 +35,13 @@ body{
   position: fixed;
   top: 0;
   height: 72px;
-
+  justify-content: space-between;
   z-index: 9999999;
 }
 .botNav{
   color: #fff;
   text-align: center;
-  border-bottom: 1px solid rgb(64, 64, 64);
+  border-top: 1px solid rgb(64, 64, 64);
   /* line-height:  */
   background-color: rgb(33, 37, 41);
   box-sizing: border-box;
@@ -216,8 +217,30 @@ body{
   .Page{
     width: calc(100% - 2em);
   }
+  .alert-box{
+    bottom: 70px;
+  }
+  .navLinks {
+    display: none !important;
+  }
+  .topNav {
+    background-color: black;
+  }
+  .botNav{
+    background-color: black;
+    
+  }
+  .hidden{
+    display: none !important;
+  }
+  .mobile_btn{
+    
+  }
+}
+@media (max-width: 768px) {
   
 }
+
 @media (min-width: 768px) {
   .movie-card {
     width: 100%; /* 중간 크기 이상의 화면에서도 카드 너비를 100%로 설정 */
