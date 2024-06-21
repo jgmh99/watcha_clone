@@ -209,9 +209,10 @@ body{
   object-fit: cover; /* 이미지가 카드 크기에 맞게 잘리도록 설정 */
 }
 
-
-
-
+.modal-content{
+  background-color: #222326 !important;
+  color: #fff !important;
+}
 
 @media (max-width: 576px) {
   .movie-card {

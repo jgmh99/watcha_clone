@@ -9,13 +9,12 @@ const LoginAlert = () => {
     const location = useLocation();
 
     // 숨길 페이지 경로를 배열로 지정
-    const hiddenPages = ['/login', '/join']; // 예시: 로그인 페이지와 회원가입 페이지
+    const hiddenPages = ['/']; 
   
     // 현재 경로가 숨길 페이지에 포함되어 있으면 null을 반환하여 숨김
     if (hiddenPages.includes(location.pathname)) {
-      return null;
-    }
-    return (
+
+      return (
         <Alert variant="danger" className='alert-box' style={{backgroundColor:'#ff0458', border:'none', color:'#fff', zIndex:'9999'}} onClose={() => setLogin(false)} dismissible >
             <Alert.Heading>
                 <FontAwesomeIcon icon={faTicket} />
@@ -26,7 +25,14 @@ const LoginAlert = () => {
                 <Nav.Link style={{color : 'white', textDecoration:'underLine'}} href="/subscribe">구독 시작하기</Nav.Link>
             </Nav> 
         </Alert>
-    )
+      )
+    }
+    else{
+        return (
+            null
+        )
+    }
+    
 }
 
 export default LoginAlert
