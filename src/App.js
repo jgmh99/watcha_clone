@@ -30,8 +30,7 @@ import Join from './pages/Join.js';
 import Subscribe from './pages/Subscribe.js';
 import Loginalert from './components/LoginAlert.js'
 import BottomNav from './components/BottomNav.js';
-
-
+import Info from './pages/Info';
 
 function App() {
   const [login,setLogin] = useState(false);
@@ -75,6 +74,7 @@ function App() {
             <Route path='/finder' element={<Finder/>}/>
             <Route path='/rating' element={<Rating/>}/>
             <Route path='/locker' element={<Locker/>}/>
+            <Route path="/info/:movieId" element={<Info />} />
           </Routes>
           {/* <div className='movie-container'>
             <MovieCard/>
