@@ -7,7 +7,7 @@ const MainPage = () => {
 
   return (
     <div className='Page' style={{fontSize:'24px', margin:'1em 1em' }}>
-      <HeaderText text="이거 어때요?" />
+      <HeaderText text="와챠 최신작" />
       <Contents/>
     </div>
   )

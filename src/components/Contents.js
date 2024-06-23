@@ -28,7 +28,7 @@ const Contents = () => {
     content = <div>Loading...</div>;
   } else if (status === 'succeeded') {
     content = (
-      <Row xs={2} md={3} lg={5} xl={7} className="g-4">
+      <Row xs={2} md={3} lg={5} xl={7} className="g-4" >
         {movies.map((movie) => (
           <Col key={movie.id} onClick={() => handleCardClick(movie.id)}>
             <Card className="movie-card">
