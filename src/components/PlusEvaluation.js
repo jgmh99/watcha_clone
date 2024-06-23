@@ -20,11 +20,15 @@ const PlusEvaluation = () => {
                 setRating(evaluations[movieId].rating);
                 setIsRated(true);
             } else {
-                const response = await axios.get(
-                    `${process.env.REACT_APP_BASE_URL}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=ko-KR`
-                );
-                const movieData = response.data;
-                saveGenre(movieId, movieData.genres);
+                try {
+                    const response = await axios.get(
+                        `${process.env.REACT_APP_BASE_URL}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=ko-KR`
+                    );
+                    const movieData = response.data;
+                    saveGenre(movieId, movieData.genres);
+                } catch (error) {
+                    console.error('Error fetching movie data:', error);
+                }
             }
         };
 
@@ -32,17 +36,17 @@ const PlusEvaluation = () => {
     }, []);
 
     const handleStarClick = (index) => {
-        setRating(index);
-        saveRating(index);
+        setRating(index); // 클릭한 별점을 상태에 저장
+        saveRating(index); // 로컬스토리지에 저장
         setIsRated(true);
     };
 
     const handleStarHover = (index) => {
-        setHoverRating(index);
+        setHoverRating(index); // 호버한 별점을 상태에 저장
     };
 
     const handleStarHoverOut = () => {
-        setHoverRating(0);
+        setHoverRating(0); // 호버 상태 초기화
     };
 
     const saveRating = (rating) => {
@@ -52,9 +56,9 @@ const PlusEvaluation = () => {
         if (evaluations[movieId]) {
             evaluations[movieId].rating = rating;
         } else {
-            evaluations[movieId] = { rating, genres: [] }; // Initialize with empty genres array
+            evaluations[movieId] = { rating, genres: [] }; // 초기화
         }
-        localStorage.setItem('evaluations', JSON.stringify(evaluations));
+        localStorage.setItem('evaluations', JSON.stringify(evaluations)); // 로컬스토리지에 저장
     };
 
     const saveGenre = (movieId, genres) => {
@@ -62,9 +66,9 @@ const PlusEvaluation = () => {
         if (evaluations[movieId]) {
             evaluations[movieId].genres = genres;
         } else {
-            evaluations[movieId] = { rating: 0, genres }; // Initialize with 0 rating
+            evaluations[movieId] = { rating: 0, genres }; // 초기화
         }
-        localStorage.setItem('evaluations', JSON.stringify(evaluations));
+        localStorage.setItem('evaluations', JSON.stringify(evaluations)); // 로컬스토리지에 저장
     };
 
     const renderStars = () => {

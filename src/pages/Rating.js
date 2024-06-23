@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarSolid, faStar as faStarEmpty } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 const Rating = () => {
@@ -11,48 +11,61 @@ const Rating = () => {
     const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     useEffect(() => {
-        const evaluations = JSON.parse(localStorage.getItem('evaluations')) || {};
-        const movieIds = Object.keys(evaluations);
-
         const fetchMovies = async () => {
+            const evaluations = JSON.parse(localStorage.getItem('evaluations')) || {};
+            const movieIds = Object.keys(evaluations);
+
             const movieData = await Promise.all(
                 movieIds.map(async (id) => {
-                    const response = await axios.get(
-                        `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=ko-KR&page=1`
-                    );
-                    return {
-                        id,
-                        title: response.data.title,
-                        posterPath: response.data.poster_path,
-                        genres: response.data.genres.map(genre => genre.id),
-                        rating: evaluations[id]
-                    };
+                    try {
+                        const response = await axios.get(
+                            `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=ko-KR`
+                        );
+                        return {
+                            id,
+                            title: response.data.title,
+                            posterPath: response.data.poster_path,
+                            genres: response.data.genres.map(genre => genre.id),
+                            rating: evaluations[id].rating // 로컬스토리지에서 평가 정보 가져오기
+                        };
+                    } catch (error) {
+                        console.error('Error fetching movie data:', error);
+                        return null;
+                    }
                 })
             );
-            setMovies(movieData);
-            recommendMovies(movieData, movieIds);
+
+            const filteredMovies = movieData.filter(movie => movie !== null);
+            setMovies(filteredMovies);
+            recommendMovies(filteredMovies, movieIds);
         };
 
         fetchMovies();
     }, [API_KEY, BASE_URL]);
 
-    const handleRatingClick = (movieId, newRating) => {
-        const updatedMovies = movies.map(movie => 
-            movie.id === movieId ? { ...movie, rating: newRating } : movie
-        );
-        setMovies(updatedMovies);
+    useEffect(() => {
+        const initialHoveredRating = movies.reduce((acc, movie) => {
+            if (movie.rating) {
+                acc[movie.id] = movie.rating;
+            }
+            return acc;
+        }, {});
+        setHoveredRating(initialHoveredRating);
+    }, [movies]);
 
+    const handleRatingClick = (movieId, newRating) => {
         const evaluations = JSON.parse(localStorage.getItem('evaluations')) || {};
-        evaluations[movieId] = newRating;
+        evaluations[movieId].rating = newRating; // 클릭한 별점을 로컬스토리지에 저장
         localStorage.setItem('evaluations', JSON.stringify(evaluations));
+        updateMoviesWithRating(evaluations);
     };
 
     const handleMouseOver = (movieId, index) => {
-        setHoveredRating(prevState => ({ ...prevState, [movieId]: index + 1 }));
+        setHoveredRating(prevState => ({ ...prevState, [movieId]: index }));
     };
 
     const handleMouseOut = (movieId) => {
-        setHoveredRating(prevState => ({ ...prevState, [movieId]: undefined }));
+        setHoveredRating(prevState => ({ ...prevState, [movieId]: movies.find(movie => movie.id === movieId).rating - 1 }));
     };
 
     const recommendMovies = async (movieData, ratedMovieIds) => {
@@ -63,19 +76,31 @@ const Rating = () => {
             return acc;
         }, {});
 
-        const mostCommonGenre = Object.keys(genreCounts).reduce((a, b) => 
+        const mostCommonGenre = Object.keys(genreCounts).reduce((a, b) =>
             genreCounts[a] > genreCounts[b] ? a : b
         );
 
-        const response = await axios.get(
-            `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${mostCommonGenre}&language=ko-KR&page=1`
-        );
+        try {
+            const response = await axios.get(
+                `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${mostCommonGenre}&language=ko-KR`
+            );
 
-        const filteredMovies = response.data.results.filter(
-            movie => !ratedMovieIds.includes(movie.id.toString())
-        );
+            const filteredMovies = response.data.results.filter(
+                movie => !ratedMovieIds.includes(movie.id.toString())
+            );
 
-        setRecommendedMovies(filteredMovies);
+            setRecommendedMovies(filteredMovies);
+        } catch (error) {
+            console.error('Error fetching recommended movies:', error);
+        }
+    };
+
+    const updateMoviesWithRating = (evaluations) => {
+        const updatedMovies = movies.map(movie => ({
+            ...movie,
+            rating: evaluations[movie.id].rating || movie.rating // 업데이트된 평가 정보 반영
+        }));
+        setMovies(updatedMovies);
     };
 
     return (
@@ -89,15 +114,15 @@ const Rating = () => {
                         {Array.from({ length: 5 }, (_, i) => (
                             <FontAwesomeIcon
                                 key={i}
-                                icon={faStarSolid}
+                                icon={i < (hoveredRating[movie.id] || movie.rating) ? faStarSolid : faStarEmpty}
                                 onClick={() => handleRatingClick(movie.id, i + 1)}
                                 onMouseOver={() => handleMouseOver(movie.id, i)}
                                 onMouseOut={() => handleMouseOut(movie.id)}
-                                style={{ 
-                                    color: (i < (hoveredRating[movie.id] || movie.rating)) ? '#ffd700' : '#ccc', 
-                                    fontSize: '26px', 
-                                    marginRight: '2px', 
-                                    cursor: 'pointer' 
+                                style={{
+                                    color: (i < (hoveredRating[movie.id] || movie.rating)) ? '#ffd700' : '#ccc',
+                                    fontSize: '26px',
+                                    marginRight: '2px',
+                                    cursor: 'pointer'
                                 }}
                             />
                         ))}
