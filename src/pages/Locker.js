@@ -30,7 +30,7 @@ const Locker = () => {
     return (
         <div className='Page' style={{ fontSize: '24px', margin: '1em 1em' }}>
             <h2>보관함</h2>
-            <Row xs={2} md={2} lg={4} xl={5} className="g-4" style={{ border: '1px solid blue' }}>
+            <Row xs={2} md={2} lg={4} xl={6} className="g-4" style={{ border: '1px solid blue' }}>
                 {movies.map(movie => (
                     <Col 
                         key={movie.id} 
