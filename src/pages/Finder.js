@@ -85,6 +85,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import RecommendedMovies from '../components/RecommendedMovies';
 import PlusLocker from '../components/PlusLocker';
+import GenreCarousel from '../components/GenreCarousel';
 
 const Finder = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -101,7 +102,7 @@ const Finder = () => {
             setSearchResults(response.data.results);
             identifyMostCommonGenre(response.data.results);
         } catch (error) {
-            console.error('Error fetching search results:', error);
+            console.error('에러:', error);
         }
     };
 
@@ -144,7 +145,6 @@ const Finder = () => {
                 />
             </div>
 
-            <h2>검색 결과</h2>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {searchResults.map(movie => (
                     <div key={movie.id} style={{ margin: '10px', border: '1px solid blue', padding: '10px', width: '100%', height: '10vh', display: 'flex' }}>
@@ -156,7 +156,7 @@ const Finder = () => {
                     </div>
                 ))}
             </div>
-
+            <GenreCarousel/>
             {mostCommonGenre && <RecommendedMovies genreIds={[mostCommonGenre]} />}
         </div>
     );

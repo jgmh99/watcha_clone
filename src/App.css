@@ -250,6 +250,9 @@ body{
   color:#fff;
 }
 
+
+
+
 @media (max-width: 576px) {
   .movie-card {
     width: 100%; /* 작은 화면에서는 카드 너비를 100%로 설정 */

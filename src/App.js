@@ -31,7 +31,7 @@ import Subscribe from './pages/Subscribe.js';
 import Loginalert from './components/LoginAlert.js'
 import BottomNav from './components/BottomNav.js';
 import Info from './pages/Info';
-
+import Genre from './pages/Genre';
 function App() {
   const [login,setLogin] = useState(false);
 
@@ -75,6 +75,7 @@ function App() {
             <Route path='/rating' element={<Rating/>}/>
             <Route path='/locker' element={<Locker/>}/>
             <Route path="/info/:movieId" element={<Info />} />
+            <Route path="/genre/:id" element={<Genre/>} />
           </Routes>
           {/* <div className='movie-container'>
             <MovieCard/>
