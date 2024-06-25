@@ -222,6 +222,34 @@ body{
   color: #fff !important;
 }
 
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 7vh;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #aaa;
+  font-size: 1.4em;
+}
+
+.search-input {
+  padding-left: 3rem; /* 아이콘의 넓이만큼 왼쪽 여백 추가 */
+  height: 100%;
+  font-size: 1.4rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 1px solid black;
+  background-color: #222326;
+  outline: none;
+  caret-color:red;
+  color:#fff;
+}
+
 @media (max-width: 576px) {
   .movie-card {
     width: 100%; /* 작은 화면에서는 카드 너비를 100%로 설정 */

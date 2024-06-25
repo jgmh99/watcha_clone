@@ -19,16 +19,6 @@ const PlusEvaluation = () => {
             if (evaluations[movieId]) {
                 setRating(evaluations[movieId].rating);
                 setIsRated(true);
-            } else {
-                try {
-                    const response = await axios.get(
-                        `${process.env.REACT_APP_BASE_URL}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=ko-KR`
-                    );
-                    const movieData = response.data;
-                    saveGenre(movieId, movieData.genres);
-                } catch (error) {
-                    console.error('Error fetching movie data:', error);
-                }
             }
         };
 
@@ -53,20 +43,34 @@ const PlusEvaluation = () => {
         const url = window.location.href;
         const movieId = url.split('/').pop(); // URL에서 영화 ID 추출
         let evaluations = JSON.parse(localStorage.getItem('evaluations')) || {};
-        if (evaluations[movieId]) {
-            evaluations[movieId].rating = rating;
+        
+        // Save the rating and fetch genres only when the rating is given
+        if (!evaluations[movieId]) {
+            evaluations[movieId] = { rating, genres: [] };
+            fetchMovieGenres(movieId);
         } else {
-            evaluations[movieId] = { rating, genres: [] }; // 초기화
+            evaluations[movieId].rating = rating;
         }
+        
         localStorage.setItem('evaluations', JSON.stringify(evaluations)); // 로컬스토리지에 저장
+    };
+
+    const fetchMovieGenres = async (movieId) => {
+        try {
+            const response = await axios.get(
+                `${process.env.REACT_APP_BASE_URL}/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=ko-KR`
+            );
+            const movieData = response.data;
+            saveGenre(movieId, movieData.genres);
+        } catch (error) {
+            console.error('Error fetching movie data:', error);
+        }
     };
 
     const saveGenre = (movieId, genres) => {
         let evaluations = JSON.parse(localStorage.getItem('evaluations')) || {};
         if (evaluations[movieId]) {
             evaluations[movieId].genres = genres;
-        } else {
-            evaluations[movieId] = { rating: 0, genres }; // 초기화
         }
         localStorage.setItem('evaluations', JSON.stringify(evaluations)); // 로컬스토리지에 저장
     };
@@ -75,7 +79,7 @@ const PlusEvaluation = () => {
         const stars = [];
         const currentRating = hoverRating || rating;
 
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i < 6; i++) {
             const icon = i <= currentRating ? faStarSolid : faStarEmpty;
 
             stars.push(
@@ -99,14 +103,15 @@ const PlusEvaluation = () => {
 
     return (
         <div>
-            <Button variant="link" onClick={() => setShowRating(!showRating)} style={{ color: isRated ? '#ffd700' : '#fff' }}>
+            <Button variant="" onClick={() => setShowRating(!showRating)} style={{  }}>
                 <Row style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Col style={{ fontSize: '26px' }}><FontAwesomeIcon icon={faStarSolid} /></Col>
-                    <Col style={{ fontSize: '12px' }}>평가하기</Col>
+                    <Col style={{ fontSize: '26px',color: isRated ? '#ffd700' : '#fff' }}><FontAwesomeIcon icon={faStarSolid} /></Col>
+                    <Col style={{ fontSize: '12px', color:'#fff' }}>평가하기</Col>
                 </Row>
             </Button>
             {showRating && (
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                // <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                <div style={{position:'absolute', bottom:'-60%'}}>
                     {renderStars()}
                 </div>
             )}
