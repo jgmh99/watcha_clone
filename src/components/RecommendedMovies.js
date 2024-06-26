@@ -27,7 +27,7 @@ const RecommendedMovies = ({ genreIds }) => {
 
     return (
         <div>
-            <h2>추천 영화</h2>
+            <h6>비슷한 장르의 영화를 찾아봤어요!</h6>
             <div style={{width:'100%'}}>
                 {recommendedMovies.map(movie => (
                     <div key={movie.id} style={{ margin: '10px', border: '1px solid blue', padding: '10px',width:'100%' }}>

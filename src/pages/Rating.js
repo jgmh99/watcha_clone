@@ -159,7 +159,7 @@ import RecommendedMovies from '../components/RecommendedMovies'; // 새로운 �
 const Rating = () => {
     const [movies, setMovies] = useState([]);
     const [hoveredRating, setHoveredRating] = useState({});
-    
+
     const [mostCommonGenre, setMostCommonGenre] = useState(null);
 
     const API_KEY = process.env.REACT_APP_API_KEY;
@@ -252,7 +252,7 @@ const Rating = () => {
                     {movies.map((movie) => (
                         <Col key={movie.id} style={{ marginBottom: '20px', border: '1px solid red' }}>
                             <img style={{ width: '100%', height: '35vh' }} src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`} alt={movie.title} />
-                            <p style={{ fontSize: '14px', border: '1px solid red', textAlign: 'end' }}>{movie.title}</p>
+                            <p style={{ fontSize: '12px', border: '1px solid red', textAlign: 'end' }}>{movie.title}</p>
                             <div style={{ textAlign: 'end' }}>
                                 {/* 내 평점 */}
                                 {Array.from({ length: 5 }, (_, i) => (

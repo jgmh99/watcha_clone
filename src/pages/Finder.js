@@ -142,6 +142,7 @@ const Finder = () => {
                             handleSearch();
                         }
                     }}
+                    // onKeyDown={ handleSearch }
                 />
             </div>
 
