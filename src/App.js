@@ -83,9 +83,10 @@ function App() {
           {
             login == false ? <Loginalert/> : null
           }
+          {windowWidth < 768 && <BottomNav />}
         </div>
         {/* <div style={{width:'100%', height:'100px', backgroundColor:'#fff',position:'absolute', bottom:'0'}}>gdgdg</div> */}
-        {windowWidth < 768 && <BottomNav />}
+        
         
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -30,21 +30,23 @@ const Locker = () => {
     return (
         <div className='Page' style={{ fontSize: '24px', margin: '1em 1em' }}>
             <h2>보관함</h2>
-            <Row xs={2} md={2} lg={4} xl={6} className="g-4" style={{ border: '1px solid blue' }}>
-                {movies.map(movie => (
-                    <Col 
-                        key={movie.id} 
-                        style={{ border: '1px solid red', padding: '1em', height: '15em', cursor: 'pointer' }}
-                        onClick={() => handleMovieClick(movie.id)}
-                    >
-                        <img 
-                            src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} 
-                            alt={movie.title} 
-                            style={{ width: '100%', height: '100%', border: '1px solid green' }}
-                        />
-                    </Col>
-                ))}
-            </Row>
+            <Container>
+                <Row xs={2} md={3} lg={5} xl={7} className="g-4" >
+                    {movies.map(movie => (
+                        <Col 
+                            key={movie.id} 
+                            style={{height: '15em', cursor: 'pointer'}}
+                            onClick={() => handleMovieClick(movie.id)}
+                        >
+                            <img 
+                                src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} 
+                                alt={movie.title} 
+                                style={{ width: '100%', height: '100%'}}
+                            />
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
         </div>
     );
 };

@@ -247,12 +247,12 @@ const Rating = () => {
     return (
         <div className='Page' style={{ fontSize: '24px', margin: '1em 1em' }}>
             <h2>내 평가</h2>
-            <Container style={{ border: '1px solid blue' }}>
+            <Container>
                 <Row xs={2} md={3} lg={5} xl={7} className="g-4">
                     {movies.map((movie) => (
-                        <Col key={movie.id} style={{ marginBottom: '20px', border: '1px solid red' }}>
+                        <Col key={movie.id} style={{ marginBottom: '20px'}}>
                             <img style={{ width: '100%', height: '35vh' }} src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`} alt={movie.title} />
-                            <p style={{ fontSize: '12px', border: '1px solid red', textAlign: 'end' }}>{movie.title}</p>
+                            <p style={{ fontSize: '12px', textAlign: 'end', marginBottom:'0', marginTop:'5px'}}>{movie.title}</p>
                             <div style={{ textAlign: 'end' }}>
                                 {/* 내 평점 */}
                                 {Array.from({ length: 5 }, (_, i) => (
@@ -267,7 +267,7 @@ const Rating = () => {
                                             fontSize: '16px',
                                             marginRight: '2px',
                                             cursor: 'pointer',
-                                            border: '1px solid red'
+                                            // border: '1px solid red'
                                         }}
                                     />
                                 ))}

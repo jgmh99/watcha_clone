@@ -22,6 +22,7 @@ ul,a{
 
 body{
   padding-top: 72px;
+  margin-bottom: 1000px;
   background-color: black !important;
 }
 .topNav{
@@ -52,6 +53,7 @@ body{
   display: none !important;
   z-index: 9999999;
 }
+
 .leftNavBar{
   width: 10em;
   height: 100%;
@@ -97,6 +99,7 @@ body{
   /* width: 100%; */
   position: absolute;
   right: 0;
+  padding-bottom: 80px;
 }
 
 
@@ -157,7 +160,9 @@ body{
   width: 1em;
   height: 1em;
 }
-
+/* .mobile-margin-bottom{
+  padding-bottom: 1000px;
+} */
 
 /* 콘텐츠 CSS */
 .movie-card{

@@ -83,12 +83,7 @@ const GenreCarousel = () => {
           slidesToScroll: 3
         }
       },
-      { breakpoint: 1200, // 화면의 넓이가 768px 이상일 때
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 4
-        }
-      },
+      
     ]
   };
 
