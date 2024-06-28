@@ -12,9 +12,7 @@ const WebtoonInfo = () => {
   const day = params.get('day');
   const [webtoon, setWebtoon] = useState(null);
   const [loading, setLoading] = useState(false);
-  const NAVER_WEBTOON_URL = process.env.REACT_APP_NAVER_WEBTOON_URL
-  const KAKAO_WEBTOON_URL = process.env.REACT_APP_KAKAO_WEBTOON_URL
-  const KAKAO_PAGE_WEBTOON_URL = process.env.REACT_APP_KAKAO_PAGE_WEBTOON_URL
+  
   useEffect(() => {
     const fetchWebtoonDetails = async () => {
       if (!provider || !day || !id) return;
@@ -54,12 +52,12 @@ const WebtoonInfo = () => {
 
   // 제공자에 따른 링크 형식 설정
   if (provider === 'NAVER') {
-    webtoonLinkFormat = `${NAVER_WEBTOON_URL}?titleId=${slicedId}&week=${lowerCaseDay}&no=`;
+    webtoonLinkFormat = `https://comic.naver.com/webtoon/detail?titleId=${slicedId}&week=${lowerCaseDay}&no=`;
   } else if (provider === 'KAKAO') {
     const titleForLink = webtoon.title.replace(/\s/g, '-'); // 제목에서 띄어쓰기를 '-'로 변환
-    webtoonLinkFormat = `${KAKAO_WEBTOON_URL}/${titleForLink}/${slicedId}`;
+    webtoonLinkFormat = `https://webtoon.kakao.com/content/${titleForLink}/${slicedId}`;
   } else if (provider === 'KAKAO_PAGE') {
-    webtoonLinkFormat = `${KAKAO_PAGE_WEBTOON_URL}/${slicedId}`;
+    webtoonLinkFormat = `https://page.kakao.com/content/${slicedId}`;
   }
 
   return (

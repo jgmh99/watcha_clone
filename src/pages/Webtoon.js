@@ -4,7 +4,6 @@ import LazyLoad from 'react-lazyload';
 import { Link } from 'react-router-dom';
 
 const WebtoonList = () => {
-  // const WEBTOON_API_URL = process.env.REACT_APP_WEBTOON_BASE_URL
 
   const week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   let today = new Date().getDay();
