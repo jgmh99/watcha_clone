@@ -32,6 +32,8 @@ import Loginalert from './components/LoginAlert.js'
 import BottomNav from './components/BottomNav.js';
 import Info from './pages/Info';
 import Genre from './pages/Genre';
+import WebtoonInfo from './pages/WebtoonInfo';
+
 function App() {
   const [login,setLogin] = useState(false);
 
@@ -76,6 +78,7 @@ function App() {
             <Route path='/locker' element={<Locker/>}/>
             <Route path="/info/:movieId" element={<Info />} />
             <Route path="/genre/:id" element={<Genre/>} />
+            <Route path="/webtoon/:id" element={<WebtoonInfo />} />
           </Routes>
           {/* <div className='movie-container'>
             <MovieCard/>
