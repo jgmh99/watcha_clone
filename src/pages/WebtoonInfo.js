@@ -86,9 +86,19 @@ const WebtoonInfo = () => {
                         :<img style={{width:'100%', height:'100%'}} src={kakaopage}/>
                     }
                 </span>
-                <span> · {webtoon.updateDays} · </span>
-                <span>{webtoon.ageGrade === 0 ? 'All' : '19'} · </span>
-                <span>{webtoon.authors}</span>
+                <span> · {
+                    webtoon.updateDays === 'MON' ? '월요일'
+                    :webtoon.updateDays === 'TUE' ? '화요일'
+                    :webtoon.updateDays === 'WED' ? '수요일'
+                    :webtoon.updateDays === 'THU' ? '목요일'
+                    :webtoon.updateDays === 'FRI' ? '금요일'
+                    :webtoon.updateDays === 'SAT' ? '토요일'
+                    :'일요일'
+                } · </span>
+                <span
+                    style={{ color: webtoon.ageGrade === 0 ? '' : 'red'}}
+                >{webtoon.ageGrade === 0 ? 'All' : '19'}</span>
+                <span> · {webtoon.authors}</span>
             </div>
         </div>
       </div>
@@ -96,7 +106,6 @@ const WebtoonInfo = () => {
       <div>
         <h3>회차</h3>
         <ul style={{padding:'0'}}>
-          {/* NAVER 제공자일 때는 5개의 회차를 역순으로 생성 */}
           {provider === 'NAVER' && [...Array(5)].map((_, index) => {
             const episodeNumber = index + 1; // 회차 번호는 1부터 시작
             const episodeLink = `${webtoonLinkFormat}${episodeNumber}`;
@@ -104,7 +113,7 @@ const WebtoonInfo = () => {
               <li key={episodeNumber} style={{marginBottom:'1em'}}>
                 <a href={episodeLink} target="_blank" rel="noopener noreferrer" >
                     <div style={{border:'1px solid red', display:'flex',gap:'1em', height:'15vh'}}>
-                        <img src={webtoon.thumbnail} style={{width:'10%'}}/>
+                        <img src={webtoon.thumbnail} style={{width:'4.5em'}}/>
                         <div style={{lineHeight:'15vh'}}>
                             <p>#{episodeNumber}</p>
                         </div>

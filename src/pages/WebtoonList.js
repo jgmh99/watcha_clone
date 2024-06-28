@@ -138,7 +138,7 @@ const WebtoonList = () => {
                         to={`/webtoon/${webtoon.id}?provider=${provider}&day=${selectedDay}`}
                         style={{ fontSize: '14px', height: '10%', display: 'block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                       >
-                        <div style={{ position: 'relative', width: '100%', height: '15rem', border: '2px solid #212529', marginBottom: '1em', borderRadius: '10px', overflow: 'hidden' }}>
+                        <div style={{ position: 'relative', width: '100%', height: '15rem', border: '2px solid #212529', marginBottom: '1em', borderRadius: '10px', overflow: 'hidden',textOverflow:'ellipsis', whiteSpace:'nowrap' }}>
                           <img src={webtoon.thumbnail[0]} alt={webtoon.title} style={{ width: '100%', height: '90%', backgroundColor: provider === 'KAKAO' ? '#4f4f4f' : '' }} />
                           <p>{webtoon.title}</p>
                           {webtoon.isUpdated && (

@@ -20,7 +20,7 @@ import {Routes, Route, Link, useNavigate, Outlet, useLocation} from 'react-route
 
 import Main from './pages/MainPage.js'
 import Finder from './pages/Finder.js';
-import Webtoon from './pages/Webtoon.js';
+import Webtoon from './pages/WebtoonList.js';
 import IndividualPurchase from './pages/IndividualPurchase.js';
 import Party from './pages/Party.js';
 import Rating from './pages/Rating.js';
