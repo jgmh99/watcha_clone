@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useLocation } from 'react-router-dom';
-
+import kakaowebtoonIcon from '../img/kakaowebtoonIcon.png'
+import kakaopage from '../img/kakaopage.png'
+import naver from '../img/naver.png'
 const WebtoonInfo = () => {
   const { id } = useParams();
   const location = useLocation();
@@ -60,29 +62,58 @@ const WebtoonInfo = () => {
 
   return (
     <div className='Page' style={{ fontSize: '24px', margin: '1em 1em' }}>
-      <img src={webtoon.thumbnail[0]} alt={webtoon.title} style={{ width: '10%', height: 'auto' }} />
-      {/* <p>{webtoon.id}</p> */}
-      <p>제목: {webtoon.title}</p>
-      <p>업데이트 요일: {webtoon.updateDays}</p>
-      <p>제공자: {webtoon.provider}</p>
-      <p>연령 등급: {webtoon.ageGrade === 0 ? '전체 이용 가능' : '성인 이용 가능'}</p>
-      <p>작가: {webtoon.authors}</p>
+      <div style={{display:'flex',gap:'10px', height:'30vh', border:'1px solid blue'}}>
+        <img src={webtoon.thumbnail[0]} alt={webtoon.title} style={{ width: '', height: 'auto' }} />
+        {/* <p>{webtoon.id}</p> */}
+        <div style={{lineHeight:'30vh', height:'3em', transform:'translateY(100%)'}}>
+            <h3>{webtoon.title}</h3>
+            <div style={{
+                alignItems:'center',
+                color:'#babac1',
+                display:'flex',
+                flexWrap:'wrap',
+                fontSize:'15px',
+                
+                fontWeight:'400',
+                gap:'8px',
+                lineHeight:'20px',
+                marginBottom:'1em'
+              }}>
+                <span style={{fontSize:'24px', color:'green', width:'1.5em', height:'1.5em', border:'1px solid #fff', borderRadius:'3px'}}>
+                    {
+                        webtoon.provider == 'NAVER' ? <img style={{width:'100%', height:'100%'}} src={naver}/>
+                        :webtoon.provider == 'KAKAO' ? <img style={{width:'100%', height:'100%'}} src={kakaowebtoonIcon}/>
+                        :<img style={{width:'100%', height:'100%'}} src={kakaopage}/>
+                    }
+                </span>
+                <span> · {webtoon.updateDays} · </span>
+                <span>{webtoon.ageGrade === 0 ? 'All' : '19'} · </span>
+                <span>{webtoon.authors}</span>
+            </div>
+        </div>
+      </div>
+
       <div>
-        <h3>무료 회차</h3>
-        <ul>
+        <h3>회차</h3>
+        <ul style={{padding:'0'}}>
           {/* NAVER 제공자일 때는 5개의 회차를 역순으로 생성 */}
-          {provider === 'NAVER' && [...Array(20)].map((_, index) => {
+          {provider === 'NAVER' && [...Array(5)].map((_, index) => {
             const episodeNumber = index + 1; // 회차 번호는 1부터 시작
             const episodeLink = `${webtoonLinkFormat}${episodeNumber}`;
             return (
-              <li key={episodeNumber}>
-                <a href={episodeLink} target="_blank" rel="noopener noreferrer">
-                  {webtoon.title} {episodeNumber}회
+              <li key={episodeNumber} style={{marginBottom:'1em'}}>
+                <a href={episodeLink} target="_blank" rel="noopener noreferrer" >
+                    <div style={{border:'1px solid red', display:'flex',gap:'1em', height:'15vh'}}>
+                        <img src={webtoon.thumbnail} style={{width:'10%'}}/>
+                        <div style={{lineHeight:'15vh'}}>
+                            <p>#{episodeNumber}</p>
+                        </div>
+                    </div>
                 </a>
               </li>
             );
           })}
-          {/* NAVER 이외의 제공자는 첫 번째 회차 하나만 생성 */}
+          {/* NAVER 이외는 바로가기 하나만 생성 */}
           {provider !== 'NAVER' && (
             <li key={1}>
               <a href={webtoonLinkFormat} target="_blank" rel="noopener noreferrer">

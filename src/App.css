@@ -13,6 +13,10 @@
 ul,a{
   list-style: none;
 }
+a{
+  text-decoration: none !important;
+  color: #fff !important;
+}
 .App {
   /* background-color: black; */
   color: #fff;
