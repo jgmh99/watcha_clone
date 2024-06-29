@@ -62,7 +62,7 @@ const WebtoonInfo = () => {
 
   return (
     <div className='Page' style={{ fontSize: '24px', margin: '1em 1em' }}>
-      <div style={{display:'flex',gap:'10px', height:'30vh', border:'1px solid blue'}}>
+      <div style={{display:'flex',gap:'10px', height:'30vh'}}>
         <img src={webtoon.thumbnail[0]} alt={webtoon.title} style={{ width: '', height: 'auto' }} />
         {/* <p>{webtoon.id}</p> */}
         <div style={{lineHeight:'30vh', height:'3em', transform:'translateY(100%)'}}>
@@ -98,7 +98,8 @@ const WebtoonInfo = () => {
                 <span
                     style={{ color: webtoon.ageGrade === 0 ? '' : 'red'}}
                 >{webtoon.ageGrade === 0 ? 'All' : '19'}</span>
-                <span> · {webtoon.authors}</span>
+                <span> · {webtoon.authors.join(' , ')}</span>
+
             </div>
         </div>
       </div>
@@ -112,7 +113,7 @@ const WebtoonInfo = () => {
             return (
               <li key={episodeNumber} style={{marginBottom:'1em'}}>
                 <a href={episodeLink} target="_blank" rel="noopener noreferrer" >
-                    <div style={{border:'1px solid red', display:'flex',gap:'1em', height:'15vh'}}>
+                    <div style={{borderBottom:'1px solid rgb(64, 64, 64)', display:'flex',gap:'1em', height:'15vh', paddingBottom:'0.5em'}}>
                         <img src={webtoon.thumbnail} style={{width:'4.5em'}}/>
                         <div style={{lineHeight:'15vh'}}>
                             <p>#{episodeNumber}</p>
