@@ -65,22 +65,24 @@ const GenreCarousel = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          prevArrow: <></>, // 이전 화살표 숨기기
-          nextArrow: <></>, // 다음 화살표 숨기기
+          // prevArrow: <></>, // 이전 화살표 숨기기
+          // nextArrow: <></>, // 다음 화살표 숨기기
         }
       },
       { breakpoint: 768, // 화면의 넓이가 768px 이상일 때
         settings: {
           slidesToShow: 3,
           slidesToScroll: 2,
-          prevArrow: <></>, // 이전 화살표 숨기기
-          nextArrow: <></>, // 다음 화살표 숨기기
+          // prevArrow: <></>, // 이전 화살표 숨기기
+          // nextArrow: <></>, // 다음 화살표 숨기기
         }
       },
-      { breakpoint: 992, // 화면의 넓이가 768px 이상일 때
+      { breakpoint: 992, // 화면의 넓이가 992px 이상일 때
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 3
+          slidesToScroll: 3,
+          // prevArrow: <></>, // 이전 화살표 숨기기
+          // nextArrow: <></>, // 다음 화살표 숨기기
         }
       },
       
@@ -103,7 +105,7 @@ const GenreCarousel = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {genres.map((genre) => (
             <div key={genre.id} style={{ flex: '1 0 150px', margin: '1em', textAlign: 'center' }}>
-              <Link to={`/genre/${genre.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+              <Link to={`/genre/${genre.id}/${genre.name}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div style={{ position: 'relative', backgroundColor: genreData[genre.id][1] || '', borderRadius: '10px', width: '100%', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img src={genreData[genre.id][0] || ''} alt={genre.name} style={{ width: '100%', height: '100%', borderRadius: '10px', objectFit: 'cover', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0 }} />
                   <div style={{ position: 'relative', zIndex: 1, color: '#fff', WebkitTextStroke: '1px black' }}>
@@ -118,11 +120,11 @@ const GenreCarousel = () => {
         <Slider {...settings}>
           {genres.map((genre) => (
             <div key={genre.id} className="genre-item">
-              <Link to={`/genre/${genre.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+              <Link to={`/genre/${genre.id}/${genre.name}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div style={{ position: 'relative', marginLeft: '1em', backgroundColor: genreData[genre.id][1] || '' }}>
                   <img src={genreData[genre.id][0] || ''} alt={genre.name} style={{ width: '100%', height: '100%', borderRadius: '10px', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, borderRadius: '10px', color: '#fff', textAlign: 'end', WebkitTextStroke: '1px black', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 1 }}>
-                    <p style={{ /* 글자크기 자동으로 조절해야함 */ fontSize:'1rem'}}>{genre.name}</p>
+                    <p style={{ /* 글자크기 자동으로 조절해야함 */ fontSize:'1.5rem', margin:'0'}}>{genre.name}</p>
                   </div>
                 </div>
               </Link>

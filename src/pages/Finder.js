@@ -67,9 +67,9 @@ const Finder = () => {
 
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {searchResults.map(movie => (
-                    <div key={movie.id} style={{ margin: '10px', border: '1px solid blue', padding: '10px', width: '100%', height: '10vh', display: 'flex' }}>
+                    <div key={movie.id} style={{ margin: '10px', borderBottom: '1px solid rgb(64, 64, 64)', padding: '10px', width: '100%', height: '10vh', display: 'flex' }}>
                         <img style={{ borderRadius: '5px' }} src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`} alt={movie.title} />
-                        <div style={{ border: '1px solid red', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <p style={{ fontSize: '14px', marginBottom: '0', padding: '10px' }}>{movie.title}</p>
                             <PlusLocker movieId={movie.id} />
                         </div>

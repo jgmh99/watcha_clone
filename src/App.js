@@ -77,7 +77,7 @@ function App() {
             <Route path='/rating' element={<Rating/>}/>
             <Route path='/locker' element={<Locker/>}/>
             <Route path="/info/:movieId" element={<Info />} />
-            <Route path="/genre/:id" element={<Genre/>} />
+            <Route path="/genre/:id/:name" element={<Genre/>} />
             <Route path="/webtoon/:id" element={<WebtoonInfo />} />
           </Routes>
           {/* <div className='movie-container'>
