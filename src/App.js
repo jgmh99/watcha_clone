@@ -16,7 +16,7 @@ import './App.css';
 import LeftNav from './components/LeftNav';
 import TopNav from './components/TopNav';
 // import MovieCard from './components/MovieCard';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
 
 import Main from './pages/MainPage.js'
 import Finder from './pages/Finder.js';
@@ -64,7 +64,7 @@ function App() {
         <TopNav />
         <div className='container-sec'>
           <LeftNav />
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
             <Routes>
               <Route path='/' element={<Main/>}/>
               <Route path='/login' element={<Login/>}/>
