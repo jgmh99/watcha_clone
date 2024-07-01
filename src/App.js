@@ -64,22 +64,24 @@ function App() {
         <TopNav />
         <div className='container-sec'>
           <LeftNav />
-          <Routes>
-            <Route path='/' element={<Main/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/join' element={<Join/>}/>
-            
-            <Route path='/subscribe' element={<Subscribe/>}/>
-            <Route path='/individualPurchase' element={<IndividualPurchase/>}/>
-            <Route path='/webtoon' element={<Webtoon/>}/>
-            <Route path='/party' element={<Party/>}/>
-            <Route path='/finder' element={<Finder/>}/>
-            <Route path='/rating' element={<Rating/>}/>
-            <Route path='/locker' element={<Locker/>}/>
-            <Route path="/info/:movieId" element={<Info />} />
-            <Route path="/genre/:id/:name" element={<Genre/>} />
-            <Route path="/webtoon/:id" element={<WebtoonInfo />} />
-          </Routes>
+          <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <Routes>
+              <Route path='/' element={<Main/>}/>
+              <Route path='/login' element={<Login/>}/>
+              <Route path='/join' element={<Join/>}/>
+              
+              <Route path='/subscribe' element={<Subscribe/>}/>
+              <Route path='/individualPurchase' element={<IndividualPurchase/>}/>
+              <Route path='/webtoon' element={<Webtoon/>}/>
+              <Route path='/party' element={<Party/>}/>
+              <Route path='/finder' element={<Finder/>}/>
+              <Route path='/rating' element={<Rating/>}/>
+              <Route path='/locker' element={<Locker/>}/>
+              <Route path="/info/:movieId" element={<Info />} />
+              <Route path="/genre/:id/:name" element={<Genre/>} />
+              <Route path="/webtoon/:id" element={<WebtoonInfo />} />
+            </Routes>
+          </BrowserRouter>
           {/* <div className='movie-container'>
             <MovieCard/>
           </div > */}
