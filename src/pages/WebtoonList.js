@@ -105,7 +105,7 @@ const WebtoonList = () => {
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: '1em', margin: '1em 0', display: isMobileView ? 'flex' : 'none' }}>
+        <div style={{gap: '5px', margin: '1em 0', display: isMobileView ? 'flex' : 'none' }}>
           {week.map((day, index) => (
             <button
               key={day}
@@ -114,7 +114,7 @@ const WebtoonList = () => {
                 color: '#fff',
                 border: selectedDay === day ? '1px solid rgb(255, 4, 88)' : '1px solid gray',
                 borderRadius: '15px',
-                padding: '10px',
+                // padding: '10px',
                 fontSize: '14px'
               }}
               onClick={() => handleDayChange(day)}

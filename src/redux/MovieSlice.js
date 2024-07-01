@@ -8,9 +8,13 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 // 비동기 thunk 생성
 export const fetchPopularMovies = createAsyncThunk(
   'movies/fetchPopularMovies',
-  async () => {
-    const response = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=ko-KR&page=1`);
-    return response.data.results;
+  async (page = 1) => {
+    const response = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=ko-KR&page=${page}`);
+    return {
+      movies: response.data.results,
+      page,
+      totalPages: response.data.total_pages
+    };
   }
 );
 
@@ -18,6 +22,8 @@ const moviesSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
+    page: 1,
+    totalPages: 1,
     status: 'idle',
     error: null
   },
@@ -29,7 +35,9 @@ const moviesSlice = createSlice({
       })
       .addCase(fetchPopularMovies.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.movies = action.payload;
+        state.movies = [...state.movies, ...action.payload.movies];
+        state.page = action.payload.page;
+        state.totalPages = action.payload.totalPages;
       })
       .addCase(fetchPopularMovies.rejected, (state, action) => {
         state.status = 'failed';
