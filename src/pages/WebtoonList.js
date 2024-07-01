@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LazyLoad from 'react-lazyload';
 import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 const WebtoonList = () => {
 
@@ -126,7 +127,7 @@ const WebtoonList = () => {
         
         <div>
           {loading ? (
-            <div>웹툰 목록을 불러오는 중입니다...</div>
+            <Loading/>
           ) : isMobileView ? (
             <div>
               <h3>{selectedDay === 'MON' ? '월요일' : selectedDay === 'TUE' ? '화요일' : selectedDay === 'WED' ? '수요일' : selectedDay === 'THU' ? '목요일' : selectedDay === 'FRI' ? '금요일' : selectedDay === 'SAT' ? '토요일' : selectedDay === 'SUN' ? '일요일' : ''} 웹툰</h3>

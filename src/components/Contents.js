@@ -57,11 +57,12 @@
 // }
 
 // export default Contents;
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchPopularMovies } from '../redux/MovieSlice';
+import Loading from './Loading';
 
 const Contents = () => {
   const dispatch = useDispatch();
@@ -82,16 +83,16 @@ const Contents = () => {
     navigate(`/info/${movieId}`);
   };
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && status !== 'loading' && page < totalPages) {
       dispatch(fetchPopularMovies(page + 1));
     }
-  };
+  }, [dispatch, status, page, totalPages]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [status, page, totalPages]);
+  }, [handleScroll]);
 
   let content;
 
@@ -125,6 +126,7 @@ const Contents = () => {
 
   return (
     <div className='movie_cont'>
+      {/* <Loading/> */}
       {content}
     </div>
   );
