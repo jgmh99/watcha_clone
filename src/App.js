@@ -16,7 +16,7 @@ import './App.css';
 import LeftNav from './components/LeftNav';
 import TopNav from './components/TopNav';
 // import MovieCard from './components/MovieCard';
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 
 import Main from './pages/MainPage.js'
 import Finder from './pages/Finder.js';
@@ -64,24 +64,22 @@ function App() {
         <TopNav />
         <div className='container-sec'>
           <LeftNav />
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
-            <Routes>
-              <Route path='/' element={<Main/>}/>
-              <Route path='/login' element={<Login/>}/>
-              <Route path='/join' element={<Join/>}/>
-              
-              <Route path='/subscribe' element={<Subscribe/>}/>
-              <Route path='/individualPurchase' element={<IndividualPurchase/>}/>
-              <Route path='/webtoon' element={<Webtoon/>}/>
-              <Route path='/party' element={<Party/>}/>
-              <Route path='/finder' element={<Finder/>}/>
-              <Route path='/rating' element={<Rating/>}/>
-              <Route path='/locker' element={<Locker/>}/>
-              <Route path="/info/:movieId" element={<Info />} />
-              <Route path="/genre/:id/:name" element={<Genre/>} />
-              <Route path="/webtoon/:id" element={<WebtoonInfo />} />
-            </Routes>
-          </BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Main/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/join' element={<Join/>}/>
+            
+            <Route path='/subscribe' element={<Subscribe/>}/>
+            <Route path='/individualPurchase' element={<IndividualPurchase/>}/>
+            <Route path='/webtoon' element={<Webtoon/>}/>
+            <Route path='/party' element={<Party/>}/>
+            <Route path='/finder' element={<Finder/>}/>
+            <Route path='/rating' element={<Rating/>}/>
+            <Route path='/locker' element={<Locker/>}/>
+            <Route path="/info/:movieId" element={<Info />} />
+            <Route path="/genre/:id/:name" element={<Genre/>} />
+            <Route path="/webtoon/:id" element={<WebtoonInfo />} />
+          </Routes>
           {/* <div className='movie-container'>
             <MovieCard/>
           </div > */}
