@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRandomMovie } from '../redux/RandomMovieSlice';
+import Loading from './Loading';
 
 const RandomMovie = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const RandomMovie = () => {
     };
   }, []); // 빈 배열을 넘기면 컴포넌트가 처음 렌더링될 때만 호출
   if (status === 'loading') {
-    content = <div>Loading...</div>;
+    content = <Loading/>;
   } else if (status === 'succeeded') {
     content = (
       <div className='mb-4'>

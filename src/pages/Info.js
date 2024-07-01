@@ -7,6 +7,7 @@ import PlusLocker from '../components/PlusLocker';
 import PlusEvaluation from '../components/PlusEvaluation';
 import PlusParty from '../components/PlusParty';
 import PlusMore from '../components/PlusMore';
+import Loading from '../components/Loading';
 
 const Info = () => {
   const { movieId } = useParams();
@@ -30,7 +31,7 @@ const Info = () => {
   let content;
 
   if (status === 'loading') {
-    content = <div>Loading...</div>; // 로딩 중이면 로딩 메시지 표시
+    content = <Loading/>
   } else if (status === 'succeeded' && movie) {
     // 성공적으로 데이터를 가져오면 영화 정보 표시
     console.log(movie);

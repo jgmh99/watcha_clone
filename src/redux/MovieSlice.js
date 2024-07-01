@@ -1,4 +1,3 @@
-// src/features/movies/moviesSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -35,7 +34,8 @@ const moviesSlice = createSlice({
       })
       .addCase(fetchPopularMovies.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.movies = [...state.movies, ...action.payload.movies];
+        const newMovies = action.payload.movies.filter(movie => !state.movies.some(existingMovie => existingMovie.id === movie.id));
+        state.movies = [...state.movies, ...newMovies];
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;
       })
