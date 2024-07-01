@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import {Alert, Button} from 'react-bootstrap';
+// import {Alert, Button} from 'react-bootstrap';
 // import {Button, Container, Form, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 // import { Nav } from 'react-bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { Nav } from 'react-bootstrap';
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import { Nav } from 'react-bootstrap';
 //폰트 어썸에서 가져온거
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import {faTicket} from '@fortawesome/free-solid-svg-icons';
+// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+// import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+// import {faTicket} from '@fortawesome/free-solid-svg-icons';
 
 import LeftNav from './components/LeftNav';
 import TopNav from './components/TopNav';
-import MovieCard from './components/MovieCard';
-import {Routes, Route, Link, useNavigate, Outlet, useLocation} from 'react-router-dom';
+// import MovieCard from './components/MovieCard';
+import {Routes, Route} from 'react-router-dom';
 
 import Main from './pages/MainPage.js'
 import Finder from './pages/Finder.js';
@@ -84,7 +84,7 @@ function App() {
             <MovieCard/>
           </div > */}
           {
-            login == false ? <Loginalert/> : null
+            login === false ? <Loginalert/> : null
           }
           {windowWidth < 768 && <BottomNav />}
         </div>

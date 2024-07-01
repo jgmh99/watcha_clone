@@ -81,9 +81,9 @@ const WebtoonInfo = () => {
               }}>
                 <span style={{fontSize:'24px', color:'green', width:'1.5em', height:'1.5em', border:'1px solid #fff', borderRadius:'3px'}}>
                     {
-                        webtoon.provider == 'NAVER' ? <img style={{width:'100%', height:'100%'}} src={naver}/>
-                        :webtoon.provider == 'KAKAO' ? <img style={{width:'100%', height:'100%'}} src={kakaowebtoonIcon}/>
-                        :<img style={{width:'100%', height:'100%'}} src={kakaopage}/>
+                        webtoon.provider === 'NAVER' ? <img style={{width:'100%', height:'100%'}} src={naver} alt='네이버 웹툰 아이콘'/>
+                        :webtoon.provider === 'KAKAO' ? <img style={{width:'100%', height:'100%'}} src={kakaowebtoonIcon} alt='카카오웹툰 아이콘'/>
+                        :<img style={{width:'100%', height:'100%'}} src={kakaopage} alt='카카오페이지 아이콘'/>
                     }
                 </span>
                 <span> · {
@@ -114,7 +114,7 @@ const WebtoonInfo = () => {
               <li key={episodeNumber} style={{marginBottom:'1em'}}>
                 <a href={episodeLink} target="_blank" rel="noopener noreferrer" >
                     <div style={{borderBottom:'1px solid rgb(64, 64, 64)', display:'flex',gap:'1em', height:'15vh', paddingBottom:'0.5em'}}>
-                        <img src={webtoon.thumbnail} style={{width:'4.5em'}}/>
+                        <img src={webtoon.thumbnail} style={{width:'4.5em'}} alt={webtoon.thumbnail}/>
                         <div style={{lineHeight:'15vh'}}>
                             <p>#{episodeNumber}</p>
                         </div>

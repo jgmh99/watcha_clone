@@ -62,7 +62,6 @@ import { Card, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchPopularMovies } from '../redux/MovieSlice';
-import Loading from './Loading';
 
 const Contents = () => {
   const dispatch = useDispatch();
@@ -126,7 +125,6 @@ const Contents = () => {
 
   return (
     <div className='movie_cont'>
-      {/* <Loading/> */}
       {content}
     </div>
   );

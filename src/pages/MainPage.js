@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import HeaderText from '../components/HeaderText'
 import Contents from '../components/Contents'
 
-import testImg from '../img/item1.png'
 const MainPage = () => {
 
   return (
