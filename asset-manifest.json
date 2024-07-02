@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/watcha_clone/static/css/main.13f051aa.css",
-    "main.js": "/watcha_clone/static/js/main.ae8bdf23.js",
+    "main.css": "/watcha_clone/static/css/main.73863fef.css",
+    "main.js": "/watcha_clone/static/js/main.5f7423f8.js",
     "static/js/453.651925cb.chunk.js": "/watcha_clone/static/js/453.651925cb.chunk.js",
     "static/media/naver.png": "/watcha_clone/static/media/naver.5a24c622d6b5f0830083.png",
     "service-worker.js": "/watcha_clone/service-worker.js",
@@ -10,13 +10,14 @@
     "static/media/slick.eot": "/watcha_clone/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/watcha_clone/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/watcha_clone/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/WATCHA_Logo_White.svg": "/watcha_clone/static/media/WATCHA_Logo_White.1477d02fffc28742d28774423f61861b.svg",
     "index.html": "/watcha_clone/index.html",
-    "main.13f051aa.css.map": "/watcha_clone/static/css/main.13f051aa.css.map",
-    "main.ae8bdf23.js.map": "/watcha_clone/static/js/main.ae8bdf23.js.map",
+    "main.73863fef.css.map": "/watcha_clone/static/css/main.73863fef.css.map",
+    "main.5f7423f8.js.map": "/watcha_clone/static/js/main.5f7423f8.js.map",
     "453.651925cb.chunk.js.map": "/watcha_clone/static/js/453.651925cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13f051aa.css",
-    "static/js/main.ae8bdf23.js"
+    "static/css/main.73863fef.css",
+    "static/js/main.5f7423f8.js"
   ]
 }
