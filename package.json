@@ -50,7 +50,7 @@
     "deploy": "gh-pages -d build"
   },
   
-  "homepage": "https://jgmh99.github.io/watcha_clone",
+  "homepage": "https://jgmh99.github.io/watcha_clone/",
 
   "eslintConfig": {
     "extends": [
