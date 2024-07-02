@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBell} from '@fortawesome/free-solid-svg-icons';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../img/WATCHA_Logo/WATCHA_Logo_Main.png'
 import MobileLoginBtn from './MobileLoginBtn';
 
@@ -29,27 +29,27 @@ const TopNav = () => {
       hiddenPages.includes(location.pathname) == true ? 
       <div className='topNav ps-3 pe-3 pt-2 pb-2 d-flex align-items-center' style={{backgroundColor:'black', border:'none'}}>
         <Nav defaultActiveKey="/" className="flex">
-          <Nav.Link href="/" className="d-flex align-items-center">
+          <Link href="/" className="d-flex align-items-center">
             <img className='logo-img me-2' src={logo} alt="Logo" style={{ width: '10em' }} />
-          </Nav.Link>
+          </Link>
         </Nav>
         <Nav className="flex" style={{fontSize : '16px'}}>
-          <Nav.Link href="#" className='hidden'>
+          <Link href="#" className='hidden'>
             <Button style={{backgroundColor:'transparent', border:'none'}} >
               <FontAwesomeIcon icon={faBell} />
             </Button>
-          </Nav.Link>
+          </Link>
           {/* 현재 페이지가 login페이지,이면 회원가입 버튼 안보이게 */}
           {!hideLoginButton && (
-            <Nav.Link href="/login" className='hidden'>
+            <Link href="/login" className='hidden'>
               <Button variant="dark">로그인</Button>
-            </Nav.Link>
+            </Link>
           )}
           {/* 현재 페이지가 join페이지,이면 회원가입 버튼 안보이게 */}
           {!hideJoinButton && (
-            <Nav.Link href="/join" className='hidden'>
+            <Link href="/join" className='hidden'>
               <Button style={{ backgroundColor: "rgb(255,4,88)", border: 'none' }}>회원가입</Button>
-            </Nav.Link>
+            </Link>
           )}
           
         </Nav>
@@ -60,23 +60,23 @@ const TopNav = () => {
       : 
       <div className='topNav ps-3 pe-3 pt-2 pb-2 d-flex align-items-center'>
         <Nav defaultActiveKey="/" className="flex">
-          <Nav.Link href="/" className="d-flex align-items-center">
+          <Link href="/" className="d-flex align-items-center">
             <img className='logo-img me-2' src={logo} alt="Logo" style={{ width: '10em' }} />
-          </Nav.Link>
+          </Link>
         </Nav>
 
         <Nav className="flex navLinks" style={{fontSize : '16px'}}>
-          <Nav.Link href="/#">
+          <Link href="/#">
             <Button variant="dark">
               <FontAwesomeIcon icon={faBell} />
             </Button>
-          </Nav.Link>
-          <Nav.Link href="/login">
+          </Link>
+          <Link href="/login">
             <Button variant="dark">로그인</Button>
-          </Nav.Link>
-          <Nav.Link href="/join">
+          </Link>
+          <Link href="/join">
             <Button style={{backgroundColor : "rgb(255,4,88)", border:'none'}}>회원가입</Button>
-          </Nav.Link>
+          </Link>
           
         </Nav>
         {
