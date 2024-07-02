@@ -61,8 +61,11 @@ const Join = () => {
   // 배경 변경
   useEffect(() => {
     // 페이지 로드 시 배경 이미지 설정
+    document.body.style.height = '100vh'
     document.body.style.backgroundImage = 'linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(https://media.themoviedb.org/t/p/w1920_and_h1080_bestv2/fU3oaBud5SZadw6k1ycftYedmXJ.jpg)';
-    document.body.style.backgroundSize = 'auto';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.objectFit = 'cover';
+    // document.body.style.backgroundPosition = '50% 40%';
     document.querySelector('.topNav').style.backgroundColor = 'transparent';
     // 페이지 언마운트 시 배경 이미지 초기화
     return () => {
