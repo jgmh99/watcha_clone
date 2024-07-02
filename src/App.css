@@ -30,6 +30,7 @@ body{
   background-color: black !important;
 }
 .topNav{
+  font-family: 'LeferiPoint-BlackA';
   color: #fff;
   text-align: center;
   border-bottom: 1px solid rgb(64, 64, 64);
@@ -216,12 +217,7 @@ body{
 }
 .movie-card:hover {
   cursor: pointer;
-  scale: 1.2;
   transition: all 0.5s;
-}
-.movie-card:hover img{
-  /* scale: 1.2;
-  transition: all 0.5s; */
 }
 .card-img {
   height: auto; /* 이미지의 높이를 자동으로 설정하여 비율 유지 */
