@@ -29,25 +29,25 @@ const TopNav = () => {
       hiddenPages.includes(location.pathname) == true ? 
       <div className='topNav ps-3 pe-3 pt-2 pb-2 d-flex align-items-center' style={{backgroundColor:'black', border:'none'}}>
         <Nav defaultActiveKey="/" className="flex">
-          <Link href="/" className="d-flex align-items-center">
+          <Link to="/" className="d-flex align-items-center">
             <img className='logo-img me-2' src={logo} alt="Logo" style={{ width: '10em' }} />
           </Link>
         </Nav>
         <Nav className="flex" style={{fontSize : '16px'}}>
-          <Link href="#" className='hidden'>
+          <Link to="#" className='hidden'>
             <Button style={{backgroundColor:'transparent', border:'none'}} >
               <FontAwesomeIcon icon={faBell} />
             </Button>
           </Link>
           {/* 현재 페이지가 login페이지,이면 회원가입 버튼 안보이게 */}
           {!hideLoginButton && (
-            <Link href="/login" className='hidden'>
+            <Link to="/login" className='hidden'>
               <Button variant="dark">로그인</Button>
             </Link>
           )}
           {/* 현재 페이지가 join페이지,이면 회원가입 버튼 안보이게 */}
           {!hideJoinButton && (
-            <Link href="/join" className='hidden'>
+            <Link to="/join" className='hidden'>
               <Button style={{ backgroundColor: "rgb(255,4,88)", border: 'none' }}>회원가입</Button>
             </Link>
           )}
@@ -60,21 +60,21 @@ const TopNav = () => {
       : 
       <div className='topNav ps-3 pe-3 pt-2 pb-2 d-flex align-items-center'>
         <Nav defaultActiveKey="/" className="flex">
-          <Link href="/" className="d-flex align-items-center">
+          <Link to="/" className="d-flex align-items-center">
             <img className='logo-img me-2' src={logo} alt="Logo" style={{ width: '10em' }} />
           </Link>
         </Nav>
 
         <Nav className="flex navLinks" style={{fontSize : '16px'}}>
-          <Link href="/#">
+          <Link to="/#">
             <Button variant="dark">
               <FontAwesomeIcon icon={faBell} />
             </Button>
           </Link>
-          <Link href="/login">
+          <Link to="/login">
             <Button variant="dark">로그인</Button>
           </Link>
-          <Link href="/join">
+          <Link to="/join">
             <Button style={{backgroundColor : "rgb(255,4,88)", border:'none'}}>회원가입</Button>
           </Link>
           
