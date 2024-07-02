@@ -5,7 +5,7 @@ import {faUser} from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 const MobileLoginBtn = () => {
     return (
-        <div>
+        <div style={{color:'black'}}>
             <DropdownButton className='mobile_btn d-flex align-items-center' id="dropdown-basic-button" title={<FontAwesomeIcon icon={faUser} />} variant="dark">
                 <Dropdown.Item>
                     <Link to="/login">로그인</Link>
