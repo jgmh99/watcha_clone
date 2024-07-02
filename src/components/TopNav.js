@@ -59,7 +59,7 @@ const TopNav = () => {
       </div> 
       : 
       <div className='topNav ps-3 pe-3 pt-2 pb-2 d-flex align-items-center'>
-        <Nav defaultActiveKey="/" className="flex">
+        <Nav className="flex">
           <Link to="/" className="d-flex align-items-center">
             <img className='logo-img me-2' src={logo} alt="Logo" style={{ width: '10em' }} />
           </Link>
