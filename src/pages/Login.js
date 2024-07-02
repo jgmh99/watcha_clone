@@ -43,7 +43,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className='login-form' >
+    <div className='login-form' style={{width:'auto'}} >
       <form>
         <h6 className='mb-4' style={{textAlign:'center'}}>로그인</h6>
         <div className="mb-3">
