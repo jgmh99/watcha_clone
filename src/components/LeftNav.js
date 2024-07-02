@@ -17,14 +17,14 @@ const LeftNav = () => {
   return (
     <div className='leftNavBar ps-3 d-none d-md-block d-lg-block d-xl-block '>
         <Nav defaultActiveKey="/" className="flex-column">
-            <Nav.Link  style={{color : 'white'}} href="/subscribe">구독</Nav.Link>
-            <Nav.Link  style={{color : 'white'}} href="/individualPurchase">개별구매</Nav.Link>
-            <Nav.Link  style={{color : 'white'}} href="/webtoon">웹툰</Nav.Link>
+            <NavLink  style={{color : 'white'}} href="/subscribe">구독</NavLink>
+            <NavLink  style={{color : 'white'}} href="/individualPurchase">개별구매</NavLink>
+            <NavLink  style={{color : 'white'}} href="/webtoon">웹툰</NavLink>
             <div className='hrLine'/>
-            <Nav.Link  style={{color : 'white'}} href="/party">파티</Nav.Link>
-            <Nav.Link  style={{color : 'white'}} href="/finder">찾기</Nav.Link>
-            <Nav.Link  style={{color : 'white'}} href="/rating">평가</Nav.Link>
-            <Nav.Link  style={{color : 'white'}} href="/locker">보관함</Nav.Link>
+            <NavLink  style={{color : 'white'}} href="/party">파티</NavLink>
+            <NavLink  style={{color : 'white'}} href="/finder">찾기</NavLink>
+            <NavLink  style={{color : 'white'}} href="/rating">평가</NavLink>
+            <NavLink  style={{color : 'white'}} href="/locker">보관함</NavLink>
         </Nav>
   </div>
   )
