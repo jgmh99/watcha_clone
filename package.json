@@ -49,7 +49,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  
   "homepage": "https://jgmh99.github.io/watcha_clone/",
+
   "eslintConfig": {
     "extends": [
       "react-app",
