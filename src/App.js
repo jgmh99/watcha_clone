@@ -16,7 +16,8 @@ import './App.css';
 import LeftNav from './components/LeftNav';
 import TopNav from './components/TopNav';
 // import MovieCard from './components/MovieCard';
-import {Routes, Route} from 'react-router-dom';
+// import {Routes, Route} from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Main from './pages/MainPage.js'
 import Finder from './pages/Finder.js';
