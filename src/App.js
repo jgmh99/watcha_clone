@@ -66,7 +66,7 @@ function App() {
         <div className='container-sec'>
           <LeftNav />
           <Routes>
-            <Route path='/' element={<Main/>}/>
+            <Route path={process.env.PUBLIC_URL} element={<Main/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/join' element={<Join/>}/>
             
