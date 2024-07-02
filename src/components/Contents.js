@@ -3,7 +3,6 @@ import { Card, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchPopularMovies } from '../redux/MovieSlice';
-
 const Contents = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

@@ -36,8 +36,6 @@ import Info from './pages/Info';
 import Genre from './pages/Genre';
 import WebtoonInfo from './pages/WebtoonInfo';
 
-//pwa 설치 유도 IOS
-import PWAPrompt from 'react-ios-pwa-prompt'
 function App() {
   const [login,setLogin] = useState(false);
 
@@ -65,7 +63,6 @@ function App() {
   }, []); // 빈 배열을 넘겨 초기 렌더링 시에만 실행되도록 함
   return (
     <div className="App">
-        <PWAPrompt promptOnVisit={1} timesToShow={3} copyClosePrompt="Close" permanentlyHideOnDismiss={false}/>
         <TopNav />
         <div className='container-sec'>
           <LeftNav />
