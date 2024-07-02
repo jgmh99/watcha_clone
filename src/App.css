@@ -147,7 +147,7 @@ body{
   height: 3.5em;
   font-size: 13px;
   caret-color: rgb(255, 4, 88);
-  background-color: #191a1c;
+  background-color: rgb(25, 26, 28, 0.5);
   color: #fff;
 }
 .join-form input:focus,
