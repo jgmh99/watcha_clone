@@ -40,6 +40,7 @@
     "workbox-strategies": "^6.6.0",
     "workbox-streams": "^6.6.0"
   },
+  "homepage": "https://jgmh99.github.io/watcha_clone",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -49,9 +50,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  
-  "homepage": "https://jgmh99.github.io/watcha_clone/",
-
   "eslintConfig": {
     "extends": [
       "react-app",

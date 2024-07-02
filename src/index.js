@@ -13,7 +13,7 @@ root.render(
   
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/watcha_clone">
+      <BrowserRouter basename="/watcha_clone/">
         <App />
       </BrowserRouter>
     </Provider>
