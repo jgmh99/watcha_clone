@@ -1,7 +1,7 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 const LeftNav = () => {
 
   const location = useLocation();
@@ -17,14 +17,14 @@ const LeftNav = () => {
   return (
     <div className='leftNavBar ps-3 d-none d-md-block d-lg-block d-xl-block '>
         <Nav className="flex-column">
-            <NavLink  style={{color : 'white'}} to="/subscribe">구독</NavLink>
-            <NavLink  style={{color : 'white'}} to="/individualPurchase">개별구매</NavLink>
-            <NavLink  style={{color : 'white'}} to="/webtoon">웹툰</NavLink>
+            <Link  style={{color : 'white'}} to="/subscribe">구독</Link>
+            <Link  style={{color : 'white'}} to="/individualPurchase">개별구매</Link>
+            <Link  style={{color : 'white'}} to="/webtoon">웹툰</Link>
             <div className='hrLine'/>
-            <NavLink  style={{color : 'white'}} to="/party">파티</NavLink>
-            <NavLink  style={{color : 'white'}} to="/finder">찾기</NavLink>
-            <NavLink  style={{color : 'white'}} to="/rating">평가</NavLink>
-            <NavLink  style={{color : 'white'}} to="/locker">보관함</NavLink>
+            <Link  style={{color : 'white'}} to="/party">파티</Link>
+            <Link  style={{color : 'white'}} to="/finder">찾기</Link>
+            <Link  style={{color : 'white'}} to="/rating">평가</Link>
+            <Link  style={{color : 'white'}} to="/locker">보관함</Link>
         </Nav>
   </div>
   )
