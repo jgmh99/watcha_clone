@@ -9,6 +9,8 @@ import PlusParty from '../components/PlusParty';
 import PlusMore from '../components/PlusMore';
 import Loading from '../components/Loading';
 
+import CharactersInfo from '../components/CharactersInfo';
+
 const Info = () => {
   const { movieId } = useParams();
   const dispatch = useDispatch();
@@ -38,19 +40,9 @@ const Info = () => {
 
     const isDesktop = window.innerWidth >= 768;
     content = (
-      // <div>
-      //   <img src={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`}/>
-        
-
-      //   <h1>{movie.title}</h1>
-      //   <p>{movie.overview}</p>
-      //   <p>Release Date: {movie.release_date}</p>
-      //   <p>Runtime: {movie.runtime} minutes</p>
-      //   {/* 필요한 다른 정보들을 추가적으로 표시할 수 있습니다 */}
-      // </div>
       <Container fluid>
       {isDesktop ? (
-        <Row style={{ boxSizing:'border-box', border:'3px solid red', height:'auto'}}>
+        <Row style={{ boxSizing:'border-box', height:'100%', border:'1px solid #fff'}}>
           <Col >
             {/* 데스크탑 환경 - 왼쪽 */}
             Left Content
@@ -59,8 +51,8 @@ const Info = () => {
             {/* 데스크탑 환경 - 오른쪽 */}
             <img src={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`} alt="Right Image" style={{maxWidth: '100%', height: 'auto' }} />
           </Col>
-          <div style={{width:'100%',height:'100%', border:'1px solid blue',padding:'0px',position:'absolute',zIndex:'99',background: 'linear-gradient(0.25turn, black 50%, transparent),linear-gradient(1turn, black 2%, transparent )', boxSizing:'border-box'}}>
-            <div style={{border:'1px solid red',position:'absolute', bottom:'0', width:'50%', padding:'0.5em'}}>
+          <div className='info-box' style={{width:'100%',height:'100%', border:'1px solid blue',padding:'0px',position:'absolute',zIndex:'99',background: 'linear-gradient(0.25turn, black 50%, transparent),linear-gradient(1turn, black 20%, transparent )', boxSizing:'border-box'}}>
+            <div style={{position:'absolute', bottom:'0', width:'50%', padding:'0.5em'}}>
               <h3>{movie.title}</h3>
               <div style={{
                 alignItems:'center',
@@ -89,6 +81,8 @@ const Info = () => {
                 </span>
               </p>
 
+              {/* <CharactersInfo/> */}
+              
               <Modal
                 show={show}
                 onHide={() => setShow(false)}
@@ -142,19 +136,23 @@ const Info = () => {
               <PlusMore/>
             </div>
           </div>
-          
+
+          <div style={{width:'100%',height:'100%', position:'absolute', bottom:'-120%'}}>
+            <CharactersInfo movieId={movieId} />
+          </div>
+
         </Row>
       ) : (
         <>
           {/* 모바일 환경 */}
-          <Row style={{border:'1px solid red'}}>
+          <Row>
             <Col xs={12} style={{ padding: '0' }}>
               {/* 모바일 환경 - 위쪽 */}
               <img src={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`} alt="Top Image" style={{ maxWidth: '100%', height: 'auto' }} />
             </Col>
           </Row>
-          <Row style={{position:'absolute', width:'100%', bottom:'-15%', border:'1px solid red'}}>
-            <Col xs={12} style={{ background: 'linear-gradient(1turn, black 70%, transparent)', height: 'auto', }}>
+          <Row style={{position:'absolute', width:'100%', bottom:'-15%', borderBottom:'1px solid #404040', background: 'linear-gradient(0.5turn, black 5%, transparent)',paddingTop:'0.5em'}}>
+            <Col xs={12} style={{ height: 'auto', }}>
               {/* 모바일 환경 - 아래쪽 */}
               <h3>{movie.title}</h3>
               <div style={{
@@ -178,12 +176,17 @@ const Info = () => {
 
               <p style={{fontSize:'14px', margin:'0'}}>{movie.tagline}
                 <span> 
-                  <Button onClick={() => setShow(true)} style={{padding:'0 0 0 5px', fontSize:'1em', backgroundColor:'transparent', border:'none', textDecoration:'underLine'}}>
+                  <Button onClick={() => setShow(true)} style={{padding:'0 0 0 5px', fontSize:'1em', backgroundColor:'transparent', border:'none', textDecoration:'underLine', color:'#ff0458'}}>
                     더보기
                   </Button>
                 </span>
               </p>
-
+              <div style={{display:'flex', justifyContent: 'space-evenly'}}>
+                <PlusLocker/>
+                <PlusEvaluation/>
+                <PlusParty/>
+                <PlusMore/>
+              </div>
               <Modal
                 show={show}
                 onHide={() => setShow(false)}
@@ -230,18 +233,20 @@ const Info = () => {
               </Modal>
             </Col>
           </Row>
+          <div style={{width:'100%',height:'100%', position:'absolute', bottom:'-140%'}}>
+            <CharactersInfo movieId={movieId} />
+          </div>
         </>
       )}
       </Container>
-
     );
   } else if (status === 'failed') {
     content = <div>{error}</div>; // 실패 시 에러 메시지 표시
   }
 
   return (
-    <div className='Page' style={{fontSize:'24px', margin:'1em 1em' }}>
-      {content}
+    <div className='Page' style={{ fontSize: '24px', margin: '1em 1em' }}>
+        {content}
     </div>
   );
   

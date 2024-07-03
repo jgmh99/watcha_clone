@@ -111,7 +111,7 @@ const PlusEvaluation = () => {
             </Button>
             {showRating && (
                 // <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <div style={{position:'absolute', bottom:'-60%'}}>
+                <div style={{position:'absolute', bottom: window.innerWidth >= 767 ? '-60%' : '-25%'}}>
                     {renderStars()}
                 </div>
             )}
