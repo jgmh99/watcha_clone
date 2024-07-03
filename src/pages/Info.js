@@ -160,7 +160,7 @@ const Info = () => {
                 color:'#babac1',
                 display:'flex',
                 flexWrap:'wrap',
-                fontSize:'15px',
+                fontSize:'12px',
                 fontWeight:'400',
                 gap:'8px',
                 lineHeight:'20px',
@@ -174,7 +174,7 @@ const Info = () => {
                 <span>{movie.origin_country[0]}</span> · 
               </div>
 
-              <p style={{fontSize:'14px', margin:'0'}}>{movie.tagline}
+              <p style={{fontSize:'10px', margin:'0'}}>{movie.tagline}
                 <span> 
                   <Button onClick={() => setShow(true)} style={{padding:'0 0 0 5px', fontSize:'1em', backgroundColor:'transparent', border:'none', textDecoration:'underLine', color:'#ff0458'}}>
                     더보기
