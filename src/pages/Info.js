@@ -42,7 +42,7 @@ const Info = () => {
     content = (
       <Container fluid>
       {isDesktop ? (
-        <Row style={{ boxSizing:'border-box', height:'100%', border:'1px solid #fff'}}>
+        <Row style={{ boxSizing:'border-box', height:'100%'}}>
           <Col >
             {/* 데스크탑 환경 - 왼쪽 */}
             Left Content
@@ -51,7 +51,7 @@ const Info = () => {
             {/* 데스크탑 환경 - 오른쪽 */}
             <img src={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`} alt="Right Image" style={{maxWidth: '100%', height: 'auto' }} />
           </Col>
-          <div className='info-box' style={{width:'100%',height:'100%', border:'1px solid blue',padding:'0px',position:'absolute',zIndex:'99',background: 'linear-gradient(0.25turn, black 50%, transparent),linear-gradient(1turn, black 20%, transparent )', boxSizing:'border-box'}}>
+          <div className='info-box' style={{width:'100%',height:'100%',padding:'0px',position:'absolute',zIndex:'99',background: 'linear-gradient(0.25turn, black 50%, transparent),linear-gradient(1turn, black 20%, transparent )', boxSizing:'border-box'}}>
             <div style={{position:'absolute', bottom:'0', width:'50%', padding:'0.5em'}}>
               <h3>{movie.title}</h3>
               <div style={{
