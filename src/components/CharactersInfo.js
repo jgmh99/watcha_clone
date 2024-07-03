@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Col, Row } from 'react-bootstrap';
 import LazyLoad from 'react-lazyload';
-
+// ㅁㄴㅇ
 const CharactersInfo = ({ movieId }) => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [cast, setCast] = useState([]);
